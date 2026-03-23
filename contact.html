@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sri Atmananda Pranayama Yoga Kendra | Contact</title>
+    <meta
+      name="description"
+      content="Contact Sri Atmananda Pranayama Yoga Kendra through phone, email, WhatsApp, and a simple enquiry form."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="config.js" defer></script>
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body data-page="contact">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div data-site-header></div>
+
+    <main id="main-content">
+      <section class="section-block">
+        <div class="container contact-grid">
+          <article class="story-card" data-reveal>
+            <p class="section-kicker">Contact</p>
+            <h1 class="section-title">An enquiry page that feels guided, warm, and easy to act on.</h1>
+            <p class="section-copy">
+              Visitors can now call, email, message on WhatsApp, or send a structured enquiry without confusion. This
+              page also includes a dedicated UPI section for future payment sharing.
+            </p>
+            <ul class="program-list">
+              <li><span><strong>Phone:</strong> <a data-config-phone-link href="#"><span data-config-text="phoneDisplay"></span></a></span></li>
+              <li><span><strong>Email:</strong> <a data-config-email-link href="#"><span data-config-text="email"></span></a></span></li>
+              <li><span><strong>Address:</strong> <span data-config-text="addressLine1"></span>, <span data-config-text="addressLine2"></span></span></li>
+            </ul>
+            <div class="hero-actions">
+              <a class="button button--solid" data-config-whatsapp href="#" target="_blank" rel="noreferrer">Open WhatsApp</a>
+              <a class="button button--ghost" data-config-email-link href="#">Send Email</a>
+            </div>
+          </article>
+          <article class="media-frame glass-card" data-reveal>
+            <img
+              data-config-image="images.contact"
+              src=""
+              alt="Contact page spiritual welcome visual"
+              width="900"
+              height="700"
+            />
+          </article>
+        </div>
+      </section>
+
+      <section class="section-block" id="enquire">
+        <div class="container contact-grid">
+          <article class="contact-card" data-reveal>
+            <p class="section-kicker">Enquiry Form</p>
+            <h2 class="section-title">Share your details and continue in WhatsApp or email.</h2>
+            <form id="enquiryForm">
+              <label class="field-label">
+                Full Name
+                <input id="name" name="name" type="text" placeholder="Enter your full name" required />
+              </label>
+              <label class="field-label">
+                Phone Number
+                <input id="phone" name="phone" type="tel" placeholder="Enter your mobile number" required />
+              </label>
+              <label class="field-label">
+                Email Address
+                <input id="email" name="email" type="email" placeholder="Enter your email address" required />
+              </label>
+              <label class="field-label">
+                Message
+                <textarea id="message" name="message" placeholder="Share your interest, preferred timing, or health notes"></textarea>
+              </label>
+              <div class="form-actions">
+                <button class="button button--solid" type="button" data-send="whatsapp">Send to WhatsApp</button>
+                <button class="button button--ghost" type="button" data-send="email">Send to Email</button>
+              </div>
+              <p class="form-status" id="formStatus">Your details stay on your device until you choose a contact method.</p>
+            </form>
+          </article>
+
+          <article class="contact-card" data-reveal>
+            <p class="section-kicker">UPI</p>
+            <h2 class="section-title">A ready section for fee confirmation and payment support.</h2>
+            <p class="section-copy">
+              The UPI card is now part of a dedicated contact page so it feels intentional, not squeezed into a long
+              landing page.
+            </p>
+            <div class="media-frame glass-card">
+              <img
+                data-config-image="images.upi"
+                src=""
+                alt="UPI placeholder card"
+                width="700"
+                height="700"
+              />
+            </div>
+            <div class="pricing-card">
+              <span>Program fee reference</span>
+              <strong data-config-text="feeLabel">Rs. 1000</strong>
+              <p>After payment, confirmation and next steps can continue through WhatsApp and email.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+  </body>
+</html>
+
+
