@@ -18,7 +18,7 @@
   designedByUrl: "https://techsathya.in",
   emailJs: {
     publicKey: "Re87m6KD4XksA-EhI",
-    serviceId: "YOUR_SERVICE_ID",
+    serviceId: "service_xguonok",
     templateId: "template_bbz7cnv",
     autoReplyTemplateId: "template_hw5yama"
   },
