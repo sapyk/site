@@ -38,6 +38,82 @@
   });
 }
 
+function initializeEmailJs() {
+  if (!window.emailjs || window.__emailJsInitialized || !window.CONFIG.emailJs) {
+    return;
+  }
+
+  window.emailjs.init(window.CONFIG.emailJs.publicKey);
+  window.__emailJsInitialized = true;
+}
+
+function setFormFeedback(statusNode, state, message) {
+  if (!statusNode) {
+    return;
+  }
+
+  statusNode.className = "form-status";
+  if (state) {
+    statusNode.classList.add("form-status--" + state);
+  }
+  statusNode.textContent = message;
+}
+
+function setSubmitState(button, loading) {
+  if (!button) {
+    return;
+  }
+
+  var labelNode = button.querySelector("[data-button-text]");
+  button.disabled = loading;
+  button.classList.toggle("is-loading", loading);
+
+  if (labelNode) {
+    labelNode.textContent = loading ? window.CONFIG.form.sendingLabel : window.CONFIG.form.submitLabel;
+  }
+}
+
+function ensureHiddenInput(form, name, value) {
+  var input = form.querySelector('input[name="' + name + '"]');
+  if (!input) {
+    input = document.createElement("input");
+    input.type = "hidden";
+    input.name = name;
+    form.appendChild(input);
+  }
+  input.value = value;
+}
+
+function buildFormPayload(form) {
+  return {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    phone: form.phone.value.trim(),
+    message: form.message.value.trim(),
+    site_name: window.CONFIG.siteName,
+    contact_email: window.CONFIG.email,
+    contact_phone: window.CONFIG.phoneDisplay,
+    whatsapp_number: window.CONFIG.whatsappNumber
+  };
+}
+
+function submitFallback(form, statusNode) {
+  ensureHiddenInput(form, "_subject", "Website enquiry - " + window.CONFIG.siteName);
+  ensureHiddenInput(form, "_captcha", "false");
+  ensureHiddenInput(form, "_template", "table");
+  setFormFeedback(
+    statusNode,
+    "error",
+    window.CONFIG.form.errorMessage + " " + window.CONFIG.form.fallbackMessage
+  );
+
+  window.setTimeout(function sendFallback() {
+    form.action = "https://formsubmit.co/" + window.CONFIG.email;
+    form.method = "POST";
+    form.submit();
+  }, 500);
+}
+
 function setupNavToggle() {
   var toggle = document.getElementById("navToggle");
   var nav = document.getElementById("siteNav");
@@ -108,50 +184,60 @@ function setupContactForm() {
     return;
   }
 
-  var status = document.getElementById("formStatus");
-  var openMessage = function openMessage(type) {
-    var name = document.getElementById("name").value.trim();
-    var phone = document.getElementById("phone").value.trim();
-    var email = document.getElementById("email").value.trim();
-    var message = document.getElementById("message").value.trim();
+  var submitButton = form.querySelector('button[type="submit"]');
+  var statusNode = document.getElementById("formStatus");
+  initializeEmailJs();
+  setFormFeedback(statusNode, "info", "Primary delivery uses EmailJS with automatic fallback.");
+  setSubmitState(submitButton, false);
 
-    if (!name || !phone || !email) {
-      status.textContent = "Please complete your name, phone number, and email first.";
+  form.addEventListener("submit", async function handleSubmit(event) {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      setFormFeedback(statusNode, "error", window.CONFIG.form.validationMessage);
       return;
     }
 
-    var body = [
-      "Namasthe, I would like to enquire about the programs at " + window.CONFIG.siteName + ".",
-      "",
-      "Name: " + name,
-      "Phone: " + phone,
-      "Email: " + email,
-      "Message: " + (message || "Please share the next batch details."),
-      "Fee: " + window.CONFIG.feeLabel
-    ].join("\n");
+    var payload = buildFormPayload(form);
+    setSubmitState(submitButton, true);
+    setFormFeedback(statusNode, "info", window.CONFIG.form.sendingLabel);
 
-    status.textContent = "Opening your selected contact option.";
+    try {
+      initializeEmailJs();
+      if (!window.emailjs) {
+        throw new Error("EmailJS SDK unavailable");
+      }
 
-    if (type === "whatsapp") {
-      var whatsappUrl =
-        "https://wa.me/" + window.CONFIG.whatsappNumber + "?text=" + encodeURIComponent(body);
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-      return;
+      await window.emailjs.send(
+        window.CONFIG.emailJs.serviceId,
+        window.CONFIG.emailJs.templateId,
+        payload
+      );
+
+      try {
+        await window.emailjs.send(
+          window.CONFIG.emailJs.serviceId,
+          window.CONFIG.emailJs.autoReplyTemplateId,
+          {
+            name: payload.name,
+            email: payload.email,
+            phone: payload.phone,
+            site_name: window.CONFIG.siteName
+          }
+        );
+      } catch (autoReplyError) {
+        console.error("EmailJS auto-reply failed", autoReplyError);
+      }
+
+      form.reset();
+      setFormFeedback(statusNode, "success", window.CONFIG.form.successMessage);
+    } catch (error) {
+      console.error("EmailJS main send failed", error);
+      submitFallback(form, statusNode);
+    } finally {
+      setSubmitState(submitButton, false);
     }
-
-    window.location.href =
-      "mailto:" +
-      window.CONFIG.email +
-      "?subject=" +
-      encodeURIComponent("Program enquiry - " + window.CONFIG.siteName) +
-      "&body=" +
-      encodeURIComponent(body);
-  };
-
-  document.querySelectorAll("[data-send]").forEach(function bindSend(button) {
-    button.addEventListener("click", function handleClick() {
-      openMessage(button.dataset.send);
-    });
   });
 }
 

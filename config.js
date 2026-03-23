@@ -16,6 +16,20 @@
     "Namasthe, I would like to know more about the programs at Sri Atmananda Pranayama Yoga Kendra.",
   designedByName: "Tech SathyA",
   designedByUrl: "https://techsathya.in",
+  emailJs: {
+    publicKey: "Re87m6KD4XksA-EhI",
+    serviceId: "YOUR_SERVICE_ID",
+    templateId: "template_bbz7cnv",
+    autoReplyTemplateId: "template_hw5yama"
+  },
+  form: {
+    submitLabel: "Send Enquiry",
+    sendingLabel: "Sending...",
+    validationMessage: "Please complete all required fields before sending.",
+    successMessage: "Thank you. Your enquiry has been sent successfully.",
+    errorMessage: "Email delivery had an issue.",
+    fallbackMessage: "Switching to secure fallback delivery now."
+  },
   nav: [
     { label: "Home", href: "index.html", page: "home" },
     { label: "About", href: "about.html", page: "about" },

@@ -18,6 +18,7 @@
     <script src="config.js" defer></script>
     <script src="header.js" defer></script>
     <script src="footer.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
     <script src="js/main.js" defer></script>
   </head>
   <body data-page="contact">
@@ -60,29 +61,36 @@
         <div class="container contact-grid">
           <article class="contact-card" data-reveal>
             <p class="section-kicker">Enquiry Form</p>
-            <h2 class="section-title">Share your details and continue in WhatsApp or email.</h2>
+            <h2 class="section-title">Send a professional enquiry with automatic email delivery.</h2>
+            <p class="section-copy">
+              The form now sends through EmailJS first and automatically switches to a secure fallback if delivery has
+              trouble. Phone, email, and WhatsApp details still stay connected through shared config values.
+            </p>
             <form id="enquiryForm">
               <label class="field-label">
                 Full Name
-                <input id="name" name="name" type="text" placeholder="Enter your full name" required />
-              </label>
-              <label class="field-label">
-                Phone Number
-                <input id="phone" name="phone" type="tel" placeholder="Enter your mobile number" required />
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required />
               </label>
               <label class="field-label">
                 Email Address
-                <input id="email" name="email" type="email" placeholder="Enter your email address" required />
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
+              </label>
+              <label class="field-label">
+                Phone Number
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Enter your mobile number" required />
               </label>
               <label class="field-label">
                 Message
-                <textarea id="message" name="message" placeholder="Share your interest, preferred timing, or health notes"></textarea>
+                <textarea id="message" name="message" placeholder="Share your interest, preferred timing, or health notes" required></textarea>
               </label>
               <div class="form-actions">
-                <button class="button button--solid" type="button" data-send="whatsapp">Send to WhatsApp</button>
-                <button class="button button--ghost" type="button" data-send="email">Send to Email</button>
+                <button class="button button--solid form-submit" type="submit">
+                  <span class="button-spinner" aria-hidden="true"></span>
+                  <span data-button-text>Send Enquiry</span>
+                </button>
               </div>
-              <p class="form-status" id="formStatus">Your details stay on your device until you choose a contact method.</p>
+              <p class="form-help">Primary delivery uses EmailJS. If it fails, the form switches to fallback automatically.</p>
+              <p class="form-status" id="formStatus" aria-live="polite"></p>
             </form>
           </article>
 
@@ -115,5 +123,3 @@
     <div data-site-footer></div>
   </body>
 </html>
-
-
