@@ -65,3 +65,4 @@ window.getConfigValue = function getConfigValue(path) {
     return undefined;
   }, window.CONFIG);
 };
+
