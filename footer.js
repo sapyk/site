@@ -15,8 +15,8 @@
     '  <div class="container footer-shell">' +
     '    <div class="footer-intro">' +
     '      <p class="section-kicker">Sri Atmananda Pranayama Yoga Kendra</p>' +
-    '      <h2 class="footer-title">A calm digital home for disciplined breath work and guided yoga learning.</h2>' +
-    '      <p class="footer-copy">Built for clarity today and structured for future WordPress migration tomorrow.</p>' +
+    '      <h2 class="footer-title">A sincere learning space for breath, balance, and inner steadiness.</h2>' +
+    '      <p class="footer-copy">Guided practice, patient teaching, and a calm atmosphere for those who wish to begin with discipline.</p>' +
     "    </div>" +
     '    <div class="footer-grid">' +
     '      <section class="footer-card">' +
@@ -45,7 +45,7 @@
     "      </section>" +
     '      <section class="footer-card">' +
     "        <h3>Guidance</h3>" +
-    '        <p>For batch timings, onboarding, and fee confirmation, reach out on WhatsApp or email.</p>' +
+    '        <p>For class details, fee information, and joining guidance, reach out through phone, WhatsApp, or email.</p>' +
     '        <a class="button button--ghost" href="contact.html#enquire">Start Your Enquiry</a>' +
     "      </section>" +
     "    </div>" +

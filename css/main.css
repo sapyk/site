@@ -351,8 +351,8 @@ main {
 }
 
 .hero-title {
-  max-width: 11ch;
-  font-size: clamp(3.5rem, 7vw, 6.2rem);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  max-width: 16ch;
   line-height: 0.9;
 }
 
@@ -863,3 +863,4 @@ main {
     transform: rotate(360deg);
   }
 }
+

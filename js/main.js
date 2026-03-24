@@ -187,7 +187,7 @@ function setupContactForm() {
   var submitButton = form.querySelector('button[type="submit"]');
   var statusNode = document.getElementById("formStatus");
   initializeEmailJs();
-  setFormFeedback(statusNode, "info", "Primary delivery uses EmailJS with automatic fallback.");
+  setFormFeedback(statusNode, "info", window.CONFIG.form.readyMessage);
   setSubmitState(submitButton, false);
 
   form.addEventListener("submit", async function handleSubmit(event) {
@@ -248,3 +248,4 @@ document.addEventListener("DOMContentLoaded", function bootSite() {
   setupRevealAnimations();
   setupContactForm();
 });
+
