@@ -114,6 +114,37 @@ function submitFallback(form, statusNode) {
   }, 500);
 }
 
+function ensureScrollTopButton() {
+  var button = document.getElementById("scrollTopBtn");
+
+  if (!button) {
+    button = document.createElement("button");
+    button.id = "scrollTopBtn";
+    button.className = "scroll-top";
+    button.type = "button";
+    button.setAttribute("aria-label", "Scroll to top");
+    button.textContent = "↑";
+    document.body.appendChild(button);
+  }
+
+  return button;
+}
+
+function setupScrollTopButton() {
+  var button = ensureScrollTopButton();
+
+  var updateVisibility = function updateVisibility() {
+    button.classList.toggle("is-visible", window.scrollY > 200);
+  };
+
+  button.addEventListener("click", function handleScrollTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  updateVisibility();
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+}
+
 function setupNavToggle() {
   var toggle = document.getElementById("navToggle");
   var nav = document.getElementById("siteNav");
@@ -232,6 +263,15 @@ function setupContactForm() {
 
       form.reset();
       setFormFeedback(statusNode, "success", window.CONFIG.form.successMessage);
+      window.setTimeout(function openWhatsAppAfterSuccess() {
+        window.open(
+          "https://wa.me/" +
+            window.CONFIG.whatsappNumber +
+            "?text=" +
+            encodeURIComponent(window.CONFIG.whatsappMessage),
+          "_blank"
+        );
+      }, 1300);
     } catch (error) {
       console.error("EmailJS main send failed", error);
       submitFallback(form, statusNode);
@@ -247,5 +287,5 @@ document.addEventListener("DOMContentLoaded", function bootSite() {
   setupStickyHeader();
   setupRevealAnimations();
   setupContactForm();
+  setupScrollTopButton();
 });
-

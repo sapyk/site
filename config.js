@@ -40,7 +40,7 @@
   ],
   images: {
     logo: "assets/images/logo-mark.png",
-    hero: "assets/images/hero-sanctuary-2.png",
+    hero: "assets/images/hero-sanctuary.png",
     guru: "assets/images/guru-portrait.png",
     story: "assets/images/story-space.png",
     program: "assets/images/program-breath.png",
@@ -52,7 +52,8 @@
       "assets/images/gallery-02.png",
       "assets/images/gallery-03.png",
       "assets/images/gallery-04.png",
-      "assets/images/gallery-05.png"
+	  "assets/images/gallery-05.png",
+      "assets/images/gallery-06.png"
     ]
   }
 };
@@ -65,4 +66,3 @@ window.getConfigValue = function getConfigValue(path) {
     return undefined;
   }, window.CONFIG);
 };
-
