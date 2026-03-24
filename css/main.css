@@ -599,10 +599,18 @@ main {
 
 .gallery-card img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: auto;
   object-fit: cover;
   border-radius: calc(var(--radius-xl) - 18px);
   transition: transform 0.4s ease, filter 260ms ease;
+}
+
+.gallery-card--wide img {
+  aspect-ratio: 16 / 9;
+}
+
+.gallery-card--tall img {
+  aspect-ratio: 1 / 1;
 }
 
 .gallery-card:hover img {
@@ -809,9 +817,17 @@ main {
 
   .hero-panel,
   .hero-image-card,
+  .media-frame,
   .media-frame img,
   .hero-image-card img {
     min-height: auto;
+  }
+
+  .hero-image-card img,
+  .media-frame img,
+  .gallery-card img {
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 
   .site-brand__tag {
