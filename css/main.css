@@ -483,6 +483,19 @@ main {
   margin-top: 0.85rem;
 }
 
+.content-card .button--ghost {
+  margin-top: 1.2rem;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-deep));
+  color: #fff8ef;
+  box-shadow: 0 14px 28px rgba(141, 76, 20, 0.18);
+}
+
+.content-card .button--ghost:hover {
+  background: linear-gradient(135deg, #c9762a, var(--saffron-deep));
+  color: #fff8ef;
+}
+
 .card-icon {
   display: inline-flex;
   align-items: center;
