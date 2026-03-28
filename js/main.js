@@ -288,4 +288,14 @@ document.addEventListener("DOMContentLoaded", function bootSite() {
   setupRevealAnimations();
   setupContactForm();
   setupScrollTopButton();
+  setupRegisterButton();
 });
+
+function setupRegisterButton() {
+  var btn = document.createElement("a");
+  btn.href = "register.html";
+  btn.className = "floating-register";
+  btn.textContent = "Register";
+
+  document.body.appendChild(btn);
+}

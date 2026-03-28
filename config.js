@@ -35,6 +35,7 @@
     { label: "Home", href: "index.html", page: "home" },
     { label: "About", href: "about.html", page: "about" },
     { label: "Programs", href: "programs.html", page: "programs" },
+	{ label: "Register", href: "register.html", page: "register" }
     { label: "Gallery", href: "gallery.html", page: "gallery" },
     { label: "Contact", href: "contact.html", page: "contact" }
   ],
