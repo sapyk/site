@@ -297,7 +297,8 @@ document.addEventListener("DOMContentLoaded", function bootSite() {
   setupRevealAnimations();
   setupContactForm();
   setupScrollTopButton();
-  
+
   if (document.body.dataset.page !== "register") {
-  setupRegisterButton();
+    setupRegisterButton();
+  }
 });

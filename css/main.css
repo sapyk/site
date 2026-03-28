@@ -1144,7 +1144,6 @@ body {
   font-weight: 700;
   text-decoration: none;
   z-index: 100;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   border: 2px solid #d6ab55; /* gold outer */
   box-shadow:
   0 0 0 2px rgba(255,255,255,0.6), /* inner light ring */
