@@ -30,7 +30,7 @@
   }
 };
 
-/* Utility to read CONFIG properties by key path */
+/* Utility function to fetch CONFIG values by key path */
 window.getConfigValue = function (keyPath) {
   return keyPath.split(".").reduce(function(acc, key) {
     return acc && acc[key] !== undefined ? acc[key] : undefined;
