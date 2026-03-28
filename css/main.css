@@ -1,4 +1,4 @@
-﻿/* ===== RESET & BASE ===== */
+﻿/* ===== RESET ===== */
 *,
 *::before,
 *::after {
@@ -10,35 +10,52 @@ body {
   font-family: "Manrope", sans-serif;
   background: #fcf8f2;
   color: #2f261d;
+  padding-top: 96px; /* 🔥 VERY IMPORTANT FIX */
 }
 
-/* ===== LAYOUT ===== */
+/* ===== CONTAINER ===== */
 .container {
   width: min(1180px, calc(100% - 2rem));
   margin: auto;
 }
 
+/* ===== SECTIONS ===== */
 .section-block {
   padding: 3rem 0;
 }
 
+/* ===== HEADER ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 96px;
+  background: #ffffff;
+  z-index: 999;
+  border-bottom: 1px solid #eee;
+}
+
 /* ===== HERO ===== */
-.hero-shell {
+.hero-shell,
+.page-hero {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 2rem;
   align-items: center;
 }
 
-.hero-title {
-  font-size: 2.4rem;
+.hero-title,
+.section-title {
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 
-.hero-copy {
+.hero-copy,
+.section-copy {
   color: #68584a;
 }
 
+/* ===== LIST FIX ===== */
 .hero-highlights {
   list-style: none;
   padding: 0;
@@ -46,11 +63,12 @@ body {
 }
 
 .hero-highlights li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 /* ===== BUTTON ===== */
 .button {
+  display: inline-block;
   padding: 10px 18px;
   border-radius: 999px;
   text-decoration: none;
@@ -62,25 +80,24 @@ body {
 }
 
 /* ===== CARDS ===== */
-.glass-card {
+.glass-card,
+.content-card {
   background: #fff;
   padding: 20px;
   border-radius: 16px;
 }
 
+/* ===== SPLIT ===== */
 .split-panel {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 
-/* ===== HEADER ===== */
-.site-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #fff;
-  z-index: 999;
+/* ===== IMAGE FIX ===== */
+img {
+  max-width: 100%;
+  display: block;
 }
 
 /* ===== SCROLL TOP ===== */
@@ -122,17 +139,24 @@ body {
   transform: translateY(-2px) scale(1.03);
 }
 
-/* ===== GALLERY ===== */
-.gallery-card img {
-  width: 100%;
-  height: auto;
+/* ===== SOCIAL ICON FIX ===== */
+.social-icons a {
+  font-size: 12px;
+  padding: 6px;
+  background: #eee;
+  border-radius: 50%;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .hero-shell,
+  .page-hero,
   .split-panel {
     grid-template-columns: 1fr;
+  }
+
+  body {
+    padding-top: 80px;
   }
 
   .floating-register {
