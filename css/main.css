@@ -1124,3 +1124,7 @@ body {
     min-height: auto;
   }
 }
+
+.section-block {
+  padding: 3rem 0;
+}
