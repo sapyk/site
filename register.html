@@ -7,28 +7,46 @@
   <title>Register – Prana Shakti Program</title>
 
   <link rel="stylesheet" href="css/main.css" />
-  <script src="config.js"></script>
-  <script defer src="js/main.js"></script>
-  <script defer src="header.js"></script>
-  <script defer src="footer.js"></script>
+
+  <script src="config.js" defer></script>
+  <script src="header.js" defer></script>
+  <script src="footer.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 
-<body>
+<body data-page="register">
 
-  <!-- HEADER -->
-  <div id="header"></div>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ✅ CORRECT HEADER -->
+<div data-site-header></div>
+
+<main id="main-content">
 
   <!-- HERO -->
   <section class="section-block">
-    <div class="container">
+    <div class="container page-hero">
 
-      <h1>Breathe Better. Live Calmer.</h1>
+      <article class="page-hero__panel story-card" data-reveal>
+        <p class="section-kicker">Registration</p>
 
-      <p>
-        A guided pranayama program to reduce stress, improve health, and restore inner balance — designed for working individuals and families.
-      </p>
+        <h1 class="section-title">
+          Breathe Better. Live Calmer.
+        </h1>
 
-      <a href="#form" class="btn-primary">Register Now</a>
+        <p class="section-copy">
+          A guided pranayama program designed to reduce stress, improve health, and restore inner balance — especially for those managing work, family, and responsibilities.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#form" class="button button--solid">Register Now</a>
+          <a data-config-whatsapp class="button button--ghost">WhatsApp Enquiry</a>
+        </div>
+      </article>
+
+      <article class="media-frame glass-card" data-reveal>
+        <img data-config-image="images.hero" alt="Pranayama practice" />
+      </article>
 
     </div>
   </section>
@@ -36,60 +54,77 @@
   <!-- WHO -->
   <section class="section-block">
     <div class="container">
-      <h2>Who is this for?</h2>
-      <ul>
-        <li>Working professionals under stress</li>
-        <li>People facing sleep or health issues</li>
-        <li>Anyone seeking calmness and clarity</li>
-        <li>Those looking for disciplined spiritual practice</li>
+
+      <p class="section-kicker">Who is this for</p>
+      <h2 class="section-title">Designed for everyday life</h2>
+
+      <ul class="hero-highlights">
+        <li><span>Working professionals facing stress and pressure</span></li>
+        <li><span>Individuals with sleep or lifestyle issues</span></li>
+        <li><span>Anyone seeking calmness and clarity</span></li>
+        <li><span>People looking for disciplined practice</span></li>
       </ul>
+
     </div>
   </section>
 
   <!-- BENEFITS -->
   <section class="section-block">
     <div class="container">
-      <h2>Benefits</h2>
-      <ul>
-        <li>Reduce stress and anxiety</li>
-        <li>Improve breathing and energy</li>
-        <li>Better sleep</li>
-        <li>Mental clarity and focus</li>
-        <li>Inner peace and balance</li>
+
+      <p class="section-kicker">Benefits</p>
+      <h2 class="section-title">What you can experience</h2>
+
+      <ul class="hero-highlights">
+        <li><span>Reduce stress and anxiety</span></li>
+        <li><span>Improve breathing and energy levels</span></li>
+        <li><span>Better sleep and relaxation</span></li>
+        <li><span>Mental clarity and focus</span></li>
+        <li><span>Inner peace and balance</span></li>
       </ul>
+
     </div>
   </section>
 
   <!-- DETAILS -->
   <section class="section-block">
-    <div class="container">
-      <h2>Program Details</h2>
-      <p>Duration: 1 Month</p>
-      <p>Time: Morning (6–7 AM) / Evening (7–8 PM)</p>
-      <p>Fee: ₹2000</p>
-      <p><strong>50% Discount (Limited Time)</strong></p>
-      <p><strong>Limited seats for personal attention</strong></p>
+    <div class="container content-card">
+
+      <p class="section-kicker">Program Details</p>
+      <h2 class="section-title">Simple and structured</h2>
+
+      <p><strong>Duration:</strong> 1 Month</p>
+      <p><strong>Time:</strong> Morning (6–7 AM) / Evening (7–8 PM)</p>
+      <p><strong>Fee:</strong> ₹2000</p>
+      <p><strong>Offer:</strong> 50% Discount (Limited Time)</p>
+      <p><strong>Note:</strong> Limited seats for better personal attention</p>
+
     </div>
   </section>
 
   <!-- FORM -->
   <section id="form" class="section-block">
     <div class="container">
-      <h2>Register Now</h2>
 
-      <iframe 
-        src="https://forms.gle/MiNi1rHiccfaPqcv9"
-        width="100%" 
-        height="900" 
-        frameborder="0">
-        Loading…
-      </iframe>
+      <p class="section-kicker">Registration</p>
+      <h2 class="section-title">Secure your place</h2>
+
+      <div class="glass-card" style="padding:20px;">
+        <iframe 
+          src="https://forms.gle/MiNi1rHiccfaPqcv9"
+          width="100%" 
+          height="900"
+          style="border:none;">
+        </iframe>
+      </div>
 
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <div id="footer"></div>
+</main>
+
+<!-- ✅ CORRECT FOOTER -->
+<div data-site-footer></div>
 
 </body>
 </html>
