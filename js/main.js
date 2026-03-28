@@ -281,6 +281,15 @@ function setupContactForm() {
   });
 }
 
+function setupRegisterButton() {
+  var btn = document.createElement("a");
+  btn.href = "register.html";
+  btn.className = "floating-register";
+  btn.textContent = "Register Now";
+
+  document.body.appendChild(btn);
+}
+
 document.addEventListener("DOMContentLoaded", function bootSite() {
   applyConfigValues();
   setupNavToggle();
@@ -288,14 +297,7 @@ document.addEventListener("DOMContentLoaded", function bootSite() {
   setupRevealAnimations();
   setupContactForm();
   setupScrollTopButton();
+  
+  if (document.body.dataset.page !== "register") {
   setupRegisterButton();
 });
-
-function setupRegisterButton() {
-  var btn = document.createElement("a");
-  btn.href = "register.html";
-  btn.className = "floating-register";
-  btn.textContent = "Register";
-
-  document.body.appendChild(btn);
-}

@@ -430,7 +430,7 @@ main {
 }
 
 .section-block {
-  padding: 4.5rem 0;
+  padding: 3rem 0;
 }
 
 .metrics-grid {
@@ -1125,10 +1125,6 @@ body {
   }
 }
 
-.section-block {
-  padding: 3rem 0;
-}
-
 .hero-highlights {
   gap: 0.5rem; /* reduce from large gap */
 }
@@ -1140,8 +1136,8 @@ body {
 .floating-register {
   position: fixed;
   bottom: 80px;
-  right: 20px;
-  background: var(--saffron);
+  left: 20px;
+  background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
   color: #fff;
   padding: 10px 16px;
   border-radius: 999px;
@@ -1149,8 +1145,25 @@ body {
   text-decoration: none;
   z-index: 100;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  border: 2px solid #d6ab55; /* gold outer */
+  box-shadow:
+  0 0 0 2px rgba(255,255,255,0.6), /* inner light ring */
+  0 10px 20px rgba(0,0,0,0.25);
 }
 
 .floating-register:hover {
   transform: translateY(-2px);
+}
+
+@media (max-width: 560px) {
+  .floating-register {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    bottom: 70px;
+    left: 14px;
+  }
+}
+
+.floating-register:hover {
+  transform: translateY(-2px) scale(1.03);
 }
